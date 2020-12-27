@@ -1,0 +1,6 @@
+include ':app', ':CommonSDK', ':CommonService', ':CommonRes',
+        ':module_find',
+        ':module_sprinkler',
+        ':module_mine',
+        ':module_ksong',
+        'module_village'

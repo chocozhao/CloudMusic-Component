@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    bottomNavigationBar 边距和字体大小设置-->
+    <dimen name="fixed_label_active">10sp</dimen>
+    <dimen name="fixed_label_inactive">10sp</dimen>
+    <dimen name="fixed_height_bottom_padding">5dp</dimen>
+</resources>
