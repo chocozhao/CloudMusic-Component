@@ -2,6 +2,9 @@ package com.cloud.music.find.mvp.model;
 
 import android.app.Application;
 
+import com.cloud.music.commonsdk.http.entity.BaseResponse;
+import com.cloud.music.find.mvp.model.api.service.FindService;
+import com.cloud.music.find.mvp.model.entity.GetFindInfo;
 import com.google.gson.Gson;
 import com.jess.arms.integration.IRepositoryManager;
 import com.jess.arms.mvp.BaseModel;
@@ -11,6 +14,10 @@ import com.jess.arms.di.scope.FragmentScope;
 import javax.inject.Inject;
 
 import com.cloud.music.find.mvp.contract.HomeContract;
+
+import java.util.List;
+
+import io.reactivex.Observable;
 
 
 /**
@@ -35,6 +42,14 @@ public class HomeModel extends BaseModel implements HomeContract.Model {
     @Inject
     public HomeModel(IRepositoryManager repositoryManager) {
         super(repositoryManager);
+    }
+
+
+    @Override
+    public Observable<BaseResponse<GetFindInfo>> getFindData() {
+        return mRepositoryManager
+                .obtainRetrofitService(FindService.class)
+                .getFindData();
     }
 
     @Override

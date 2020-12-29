@@ -1,5 +1,10 @@
 package com.cloud.music.find.di.module;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.cloud.music.find.mvp.model.entity.GetFindInfo;
+import com.cloud.music.find.mvp.ui.adapter.FindAdapter;
 import com.jess.arms.di.scope.FragmentScope;
 
 import dagger.Binds;
@@ -8,6 +13,10 @@ import dagger.Provides;
 
 import com.cloud.music.find.mvp.contract.HomeContract;
 import com.cloud.music.find.mvp.model.HomeModel;
+import com.tbruyelle.rxpermissions2.RxPermissions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -27,4 +36,30 @@ public abstract class HomeModule {
 
     @Binds
     abstract HomeContract.Model bindHomeModel(HomeModel model);
+
+
+    @FragmentScope
+    @Provides
+    static RxPermissions provideRxPermissions(HomeContract.View view) {
+        return new RxPermissions(view.getFragment());
+    }
+
+
+    @FragmentScope
+    @Provides
+    static RecyclerView.LayoutManager provideLayoutManager(HomeContract.View view) {
+        return new LinearLayoutManager(view.getActivity());
+    }
+
+    @FragmentScope
+    @Provides
+    static List<GetFindInfo.BlocksBean> provideBlocksList() {
+        return new ArrayList<>();
+    }
+
+    @FragmentScope
+    @Provides
+    static FindAdapter provideFindAdapter(List<GetFindInfo.BlocksBean> list,HomeContract.View view){
+        return new FindAdapter(list,view.getFragment());
+    }
 }

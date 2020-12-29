@@ -25,9 +25,9 @@ package com.cloud.music.commonsdk.http;
  * ================================================
  */
 public interface Api {
-    String APP_DOMAIN = "https://api.github.com";
+    String APP_DOMAIN = "http://192.168.1.102:3000/";
 
-    String REQUEST_SUCCESS = "200";
+    int REQUEST_SUCCESS = 200;
 
     // 错误码
     String ERROR_USER_INCORRECT = "1001";

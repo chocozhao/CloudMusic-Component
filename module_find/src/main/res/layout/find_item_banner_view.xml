@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/public_12dp"
+        android:layout_marginTop="@dimen/public_8dp"
+        android:layout_marginEnd="@dimen/public_12dp"
+        android:layout_marginBottom="@dimen/public_8dp"
+        app:cardCornerRadius="@dimen/public_8dp"
+        app:cardElevation="@dimen/public_4dp">
+
+        <ImageView
+            android:id="@+id/image_banner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/text_banner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/public_36dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:ellipsize="end"
+            android:padding="5dp"
+            android:singleLine="true"
+            android:text="说明文字"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+    </androidx.cardview.widget.CardView>
+</FrameLayout>
+

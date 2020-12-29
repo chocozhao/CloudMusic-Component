@@ -53,7 +53,7 @@ public class AppLifecyclesImpl implements AppLifecycles {
             return;
         }
         //使用 RetrofitUrlManager 切换 BaseUrl
-        RetrofitUrlManager.getInstance().putDomain(Api.GANK_DOMAIN_NAME, Api.GANK_DOMAIN);
+//        RetrofitUrlManager.getInstance().putDomain(Api.GANK_DOMAIN_NAME, Api.GANK_DOMAIN);
         //当所有模块集成到宿主 App 时, 在 App 中已经执行了以下代码
         if (BuildConfig.IS_BUILD_MODULE) {
             //leakCanary内存泄露检查

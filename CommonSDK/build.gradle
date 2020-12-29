@@ -46,4 +46,5 @@ dependencies {
         exclude module: 'support-annotations'
     }
     api rootProject.ext.dependencies["retrofit-url-manager"]
+    api rootProject.ext.dependencies["mmkv"] // 替代SP存储  提高性能
 }

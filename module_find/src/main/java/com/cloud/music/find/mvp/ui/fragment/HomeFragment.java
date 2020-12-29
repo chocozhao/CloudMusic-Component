@@ -9,9 +9,19 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bigkoo.convenientbanner.ConvenientBanner;
+import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
+import com.bigkoo.convenientbanner.holder.Holder;
 import com.cloud.music.commonsdk.core.RouterHub;
+import com.cloud.music.find.R2;
+import com.cloud.music.find.mvp.model.entity.GetFindInfo;
+import com.cloud.music.find.mvp.ui.adapter.FindAdapter;
+import com.cloud.music.find.mvp.ui.holder.BannerHolderView;
 import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
@@ -21,6 +31,13 @@ import com.cloud.music.find.mvp.contract.HomeContract;
 import com.cloud.music.find.mvp.presenter.HomePresenter;
 
 import com.cloud.music.find.R;
+import com.tbruyelle.rxpermissions2.RxPermissions;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import butterknife.BindView;
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
@@ -38,7 +55,19 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
  * ================================================
  */
 @Route(path = RouterHub.FIND_HOME_FRAGMENT)
-public class HomeFragment extends BaseFragment<HomePresenter> implements HomeContract.View {
+public class HomeFragment extends BaseFragment<HomePresenter> implements HomeContract.View, SwipeRefreshLayout.OnRefreshListener {
+
+    @BindView(R2.id.swipeRefreshLayout)
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    @BindView(R2.id.rv_find_list)
+    RecyclerView mRvFindList;
+    @Inject
+    RxPermissions mRxPermissions;
+    @Inject
+    RecyclerView.LayoutManager mLayoutManager;
+    @Inject
+    FindAdapter mFindAdapter;
+
 
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
@@ -62,7 +91,8 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
-
+        //初始化适配器
+        initRecyclerView();
     }
 
     /**
@@ -106,14 +136,27 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
 
     }
 
+    /**
+     * 初始化RecyclerView
+     */
+    private void initRecyclerView() {
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        ArmsUtils.configRecyclerView(mRvFindList, mLayoutManager);
+//        View view = getLayoutInflater().inflate(R.layout.find_rv_item_banner, mFindAdapter, false);
+//        mConvenientBanner = view.findViewById(R.id.cb_convenient_banner);
+//        mFindAdapter.addHeaderView(view);
+        //初始化adatper数据
+        mRvFindList.setAdapter(mFindAdapter);
+    }
+
     @Override
     public void showLoading() {
-
+        mSwipeRefreshLayout.setRefreshing(true);
     }
 
     @Override
     public void hideLoading() {
-
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
@@ -131,5 +174,58 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
     @Override
     public void killMyself() {
 
+    }
+
+    @Override
+    public Fragment getFragment() {
+        return this;
+    }
+
+    /**
+     * 权限
+     *
+     * @return
+     */
+    @Override
+    public RxPermissions getRxPermissions() {
+        return mRxPermissions;
+    }
+
+    /***
+     * 获取数据
+     * @param blocksBean
+     */
+    @Override
+    public void setUpData(List<GetFindInfo.BlocksBean> blocksBean) {
+
+    }
+
+    /**
+     * 轮播图
+     *
+     * @param getBannerInfoList
+     */
+//    @Override
+//    public void setUpBannerData(List<GetFindInfo.BlocksBean.ExtInfoBean.BannersBean> getBannerInfoList) {
+//        mConvenientBanner.setPages(new CBViewHolderCreator() {
+//            @Override
+//            public Holder createHolder(View itemView) {
+//                return new BannerHolderView(itemView, mContext);
+//            }
+//
+//            @Override
+//            public int getLayoutId() {
+//                return R.layout.find_item_banner_view;
+//            }
+//        }, getBannerInfoList);
+//        mConvenientBanner.startTurning(3000);
+//    }
+
+    /**
+     * 下拉刷新
+     */
+    @Override
+    public void onRefresh() {
+        mPresenter.requestData(true);
     }
 }

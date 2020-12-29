@@ -25,6 +25,6 @@ package com.cloud.music.find.mvp.model.api;
  * ================================================
  */
 public interface Api {
-    String GANK_DOMAIN_NAME = "gank";
-    String GANK_DOMAIN = "https://gank.io/api/v2/";
+    String FIND_DOMAIN_NAME = "find";
+    String FIND_DOMAIN = "http://localhost:3000/";
 }

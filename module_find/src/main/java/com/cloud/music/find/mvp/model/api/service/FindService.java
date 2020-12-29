@@ -15,19 +15,14 @@
  */
 package com.cloud.music.find.mvp.model.api.service;
 
-import com.cloud.music.find.mvp.model.api.Api;
-import com.cloud.music.find.mvp.model.entity.BaseResponse;
+import com.cloud.music.commonsdk.http.entity.BaseResponse;
+import com.cloud.music.find.mvp.model.entity.GetFindInfo;
 
 import java.util.List;
 
 import io.reactivex.Observable;
-
 import retrofit2.Retrofit;
 import retrofit2.http.GET;
-import retrofit2.http.Headers;
-import retrofit2.http.Path;
-
-import static me.jessyan.retrofiturlmanager.RetrofitUrlManager.DOMAIN_NAME_HEADER;
 
 /**
  * ================================================
@@ -38,13 +33,28 @@ import static me.jessyan.retrofiturlmanager.RetrofitUrlManager.DOMAIN_NAME_HEADE
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
+ *  * 请求不一样的接口  可以在AppLifecyclesImpl中通过
+ *  * RetrofitUrlManager.getInstance().putDomain(Api.FIND_DOMAIN_NAME, Api.FIND_DOMAIN);
+ *  * 配置
+ *  *
+ *  * 在请求头添加      @Headers({FIND_DOMAIN_NAME + Api.FIND_DOMAIN})
+ *  * 比如：
+ *  * @Headers({FIND_DOMAIN_NAME + Api.FIND_DOMAIN})
+ *  * @GET("data/category/Girl/type/Girl/page/{page}/count/{count}")
+ *  * Observable<BasePageResponse<List<GankItemBean>>> getGirlList(@Path("count") int count, @Path("page") int page);
  */
 public interface FindService {
+
     /**
-     * 妹纸列表
+     * 发现页信息
+     * @return
      */
-//    @Headers({DOMAIN_NAME_HEADER + Api.GANK_DOMAIN_NAME})
-//    @GET("data/category/Girl/type/Girl/page/{page}/count/{count}")
-//    Observable<BaseResponse<List<GankItemBean>>> getGirlList(@Path("count") int count, @Path("page") int page);
+    @GET("/homepage/block/page")
+    Observable<BaseResponse<GetFindInfo>> getFindData();
+
+
+
+
+
 
 }

@@ -64,4 +64,42 @@
     //marginBottom
     <dimen name="public_mar_bottom_4dp">4dp</dimen>
     <dimen name="public_mar_bottom_5dp">5dp</dimen>
+
+    //public dp
+    <dimen name="public_2dp">2dp</dimen>
+    <dimen name="public_4dp">4dp</dimen>
+    <dimen name="public_6dp">6dp</dimen>
+    <dimen name="public_8dp">8dp</dimen>
+    <dimen name="public_10dp">10dp</dimen>
+    <dimen name="public_12dp">12dp</dimen>
+    <dimen name="public_14dp">14dp</dimen>
+    <dimen name="public_16dp">16dp</dimen>
+    <dimen name="public_18dp">18dp</dimen>
+    <dimen name="public_20dp">20dp</dimen>
+    <dimen name="public_22dp">22dp</dimen>
+    <dimen name="public_24dp">24dp</dimen>
+    <dimen name="public_26dp">26dp</dimen>
+    <dimen name="public_28dp">28dp</dimen>
+    <dimen name="public_30dp">30dp</dimen>
+    <dimen name="public_32dp">32dp</dimen>
+    <dimen name="public_34dp">34dp</dimen>
+    <dimen name="public_36dp">36dp</dimen>
+    <dimen name="public_38dp">38dp</dimen>
+    <dimen name="public_40dp">40dp</dimen>
+    <dimen name="public_50dp">50dp</dimen>
+    <dimen name="public_55dp">55dp</dimen>
+    <dimen name="public_60dp">60dp</dimen>
+    <dimen name="public_65dp">65dp</dimen>
+    <dimen name="public_66dp">66dp</dimen>
+    <dimen name="public_70dp">70dp</dimen>
+    <dimen name="public_80dp">80dp</dimen>
+    <dimen name="public_90dp">90dp</dimen>
+    <dimen name="public_96dp">96dp</dimen>
+    <dimen name="public_100dp">100dp</dimen>
+    <dimen name="public_120dp">120dp</dimen>
+    <dimen name="public_135dp">135dp</dimen>
+    <dimen name="public_150dp">150dp</dimen>
+    <dimen name="public_220dp">220dp</dimen>
+    <dimen name="public_250dp">250dp</dimen>
+    <dimen name="public_350dp">350dp</dimen>
 </resources>
