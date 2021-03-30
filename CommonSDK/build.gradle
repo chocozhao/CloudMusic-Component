@@ -47,4 +47,5 @@ dependencies {
     }
     api rootProject.ext.dependencies["retrofit-url-manager"]
     api rootProject.ext.dependencies["mmkv"] // 替代SP存储  提高性能
+    api rootProject.ext.dependencies["AndroidUtilCode"] // 全局工具类
 }

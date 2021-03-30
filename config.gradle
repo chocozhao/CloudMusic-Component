@@ -57,7 +57,7 @@ ext {
             "autosize"                     : "me.jessyan:autosize:1.1.2",
             "convenientbanner"             : "com.bigkoo:ConvenientBanner:2.1.4",
             "BottomNavigationBar"          : "com.ashokvarma.android:bottom-navigation-bar:2.1.0",
-            "BaseRecyclerViewAdapterHelper": 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50',
+            "BaseRecyclerViewAdapterHelper": 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4',
 
             //rx1
             "rxandroid"                    : "io.reactivex:rxandroid:1.2.1",
@@ -98,6 +98,7 @@ ext {
             "retrofit-url-manager"         : "me.jessyan:retrofit-url-manager:1.4.0",
             "lifecyclemodel"               : "me.jessyan:lifecyclemodel:1.0.1",
             "mmkv"                         : "com.tencent:mmkv-static:1.2.7",
+            "AndroidUtilCode"              : "com.blankj:utilcodex:1.30.5",
 
             //test
             "junit"                        : "junit:junit:4.12",

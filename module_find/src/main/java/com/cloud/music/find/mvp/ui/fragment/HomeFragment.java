@@ -17,6 +17,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.holder.Holder;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.cloud.music.commonsdk.core.RouterHub;
 import com.cloud.music.find.R2;
 import com.cloud.music.find.mvp.model.entity.GetFindInfo;
@@ -147,6 +148,12 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
 //        mFindAdapter.addHeaderView(view);
         //初始化adatper数据
         mRvFindList.setAdapter(mFindAdapter);
+//        mFindAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+//
+//            }
+//        });
     }
 
     @Override

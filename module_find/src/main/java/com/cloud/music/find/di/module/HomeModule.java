@@ -59,7 +59,7 @@ public abstract class HomeModule {
 
     @FragmentScope
     @Provides
-    static FindAdapter provideFindAdapter(List<GetFindInfo.BlocksBean> list,HomeContract.View view){
-        return new FindAdapter(list,view.getFragment());
+    static FindAdapter provideFindAdapter(List<GetFindInfo.BlocksBean> list){
+        return new FindAdapter(list);
     }
 }
